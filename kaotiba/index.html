@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="考题吧 - 提供海量历年真题、模拟试题及备考资料，覆盖公务员、考研、教师资格、职业资格等考试，助您高效备考，轻松上岸。">
+    <meta name="keywords" content="考题吧,历年真题,模拟试题,备考资料,公务员考试,考研真题,教师资格证">
+    <title>考题吧-历年真题与模拟试题备考资源库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #f3f4f6;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg-body: #f9fafb;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        .site-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 6px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            margin-bottom: 40px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* 内容区域 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* 左侧列表 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .exam-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .exam-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: box-shadow 0.2s;
+        }
+
+        .exam-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .exam-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .exam-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .exam-tag {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .exam-stats {
+            display: flex;
+            gap: 16px;
+            text-align: right;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .download-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* 右侧侧边栏 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background-color: #fee2e2; color: #ef4444; }
+        .rank-item:nth-child(2) .rank-num { background-color: #ffedd5; color: #f97316; }
+        .rank-item:nth-child(3) .rank-num { background-color: #fef9c3; color: #eab308; }
+
+        .rank-name {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .rank-download {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .notice-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .notice-list li:last-child {
+            border-bottom: none;
+        }
+
+        .notice-list a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background-color: var(--text-main);
+            color: #d1d5db;
+            padding: 60px 0 30px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+            
+            .main-nav ul {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+
+            .user-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exam-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .exam-stats {
+                width: 100%;
+                justify-content: space-between;
+                text-align: left;
+                border-top: 1px solid var(--border-color);
+                padding-top: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>考题吧</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">历年真题</a></li>
+                    <li><a href="#">模拟试题</a></li>
+                    <li><a href="#">备考资料</a></li>
+                    <li><a href="#">名师视频</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>海量真题资源，助您高效备考</h1>
+            <p>收录公务员、考研、教师资格证、CPA等热门考试历年真题与模拟卷，提供高清PDF下载，精准定位薄弱环节。</p>
+            <div class="search-box">
+                <input type="text" placeholder="请输入考试名称或科目（如：行测、高数、教育学）...">
+                <button>立即搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <section class="container category-nav">
+        <div class="category-grid">
+            <div class="category-card">
+                <span class="category-icon">📚</span>
+                <div class="category-name">公务员考试</div>
+                <div class="category-count">1,200+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🎓</span>
+                <div class="category-name">研究生入学</div>
+                <div class="category-count">8,500+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">👩‍🏫</span>
+                <div class="category-name">教师资格证</div>
+                <div class="category-count">3,400+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">💼</span>
+                <div class="category-name">职业资格</div>
+                <div class="category-count">2,100+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">⚖️</span>
+                <div class="category-name">法律职业</div>
+                <div class="category-count">900+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🏥</span>
+                <div class="category-name">医疗卫生</div>
+                <div class="category-count">5,600+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">💰</span>
+                <div class="category-name">财经类</div>
+                <div class="category-count">1,500+ 试题</div>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🔧</span>
+                <div class="category-name">工程建筑</div>
+                <div class="category-count">2,300+ 试题</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主体内容 -->
+    <main class="container content-grid">
+        <!-- 左侧：最新更新 -->
+        <section class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">最新更新</h2>
+                <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看更多 &rarr;</a>
+            </div>
+            
+            <div class="exam-list">
+                <!-- 列表项 1 -->
+                <article class="exam-card">
+                    <div class="exam-info">
+                        <h3>2024年国家公务员考试《行政职业能力测验》真题卷（A类）</h3>
+                        <div class="exam-meta">
+                            <span class="exam-tag">行测</span>
+                            <span>更新时间：2024-03-15</span>
+                            <span>来源：网友上传</span>
+                        </div>
+                    </div>
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">120</span>
+                            <span class="stat-label">题目数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PDF</span>
+                            <span class="stat-label">格式</span>
+                        </div>
+                        <a href="#" class="download-link">下载试题 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- 列表项 2 -->
+                <article class="exam-card">
+                    <div class="exam-info">
+                        <h3>2024年全国硕士研究生招生考试《英语二》真题及解析</h3>
+                        <div class="exam-meta">
+                            <span class="exam-tag">考研英语</span>
+                            <span>更新时间：2024-02-28</span>
+                            <span>来源：官方发布</span>
+                        </div>
+                    </div>
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">48</span>
+                            <span class="stat-label">题目数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PDF</span>
+                            <span class="stat-label">格式</span>
+                        </div>
+                        <a href="#" class="download-link">下载试题 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- 列表项 3 -->
+                <article class="exam-card">
+                    <div class="exam-info">
+                        <h3>2023年下半年中小学教师资格考试《综合素质》真题</h3>
+                        <div class="exam-meta">
+                            <span class="exam-tag">教资</span>
+                            <span>更新时间：2024-01-20</span>
+                            <span>来源：考生回忆</span>
+                        </div>
+                    </div>
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">29</span>
+                            <span class="stat-label">题目数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PDF</span>
+                            <span class="stat-label">格式</span>
+                        </div>
+                        <a href="#" class="download-link">下载试题 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- 列表项 4 -->
+                <article class="exam-card">
+                    <div class="exam-info">
+                        <h3>2024年注册会计师全国统一考试《会计》科目真题</h3>
+                        <div class="exam-meta">
+                            <span class="exam-tag">CPA</span>
+                            <span>更新时间：2024-03-10</span>
+                            <span>来源：考生回忆</span>
+                        </div>
+                    </div>
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">114</span>
+                            <span class="stat-label">题目数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PDF</span>
+                            <span class="stat-label">格式</span>
+                        </div>
+                        <a href="#" class="download-link">下载试题 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- 列表项 5 -->
+                <article class="exam-card">
+                    <div class="exam-info">
+                        <h3>2023年二级建造师《建筑工程管理与实务》真题</h3>
+                        <div class="exam-meta">
+                            <span class="exam-tag">二建</span>
+                            <span>更新时间：2024-01-05</span>
+                            <span>来源：考生回忆</span>
+                        </div>
+                    </div>
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">20</span>
+                            <span class="stat-label">题目数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PDF</span>
+                            <span class="stat-label">格式</span>
+                        </div>
+                        <a href="#" class="download-link">下载试题 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 右侧：侧边栏 -->
+        <aside class="sidebar">
+            <!-- 热门榜单 -->
+            <div class="widget">
+                <h3 class="widget-title">热门下载榜</h3>
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <span class="rank-num">1</span>
+                        <span class="rank-name">2024国考行测真题</span>
+                        <span class="rank-download">下载</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">2</span>
+                        <span class="rank-name">考研数学三真题解析</span>
+                        <span class="rank-download">下载</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">3</span>
+                        <span class="rank-name">2023教资笔试真题</span>
+                        <span class="rank-download">下载</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">4</span>
+                        <span class="rank-name">2024CPA会计真题</span>
+                        <span class="rank-download">下载</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">5</span>
+                        <span class="rank-name">2023执业药师真题</span>
+                        <span class="rank-download">下载</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 考试资讯 -->
+            <div class="widget">
+                <h3 class="widget-title">考试资讯</h3>
+                <ul class="notice-list">
+                    <li><a href="#"><span>2025年考研大纲发布通知</span> <span>12-05</span></a></li>
+                    <li><a href="#"><span>2024年公务员省考时间安排</span> <span>11-28</span></a></li>
+                    <li><a href="#"><span>教师资格证面试报名入口开启</span> <span>11-15</span></a></li>
+                    <li><a href="#"><span>注册会计师考试通过率分析</span> <span>10-30</span></a></li>
+                    <li><a href="#"><span>2024年法考客观题成绩查询</span> <span>10-20</span></a></li>
+                </ul>
+            </div>
+
+            <!-- 备考小贴士 -->
+            <div class="widget" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white;">
+                <h3 class="widget-title" style="border-bottom-color: rgba(255,255,255,0.2);">备考小贴士</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 12px;">历年真题是复习的核心资料，建议至少刷完最近3-5年的真题，并反复研究错题。</p>
+                <a href="#" style="color: white; font-weight: 600; font-size: 0.9rem;">查看更多技巧 &rarr;</a>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于考题吧</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>考试分类</h4>
+                    <ul>
+                        <li><a href="#">公务员考试</a></li>
+                        <li><a href="#">研究生考试</a></li>
+                        <li><a href="#">教师资格</a></li>
+                        <li><a href="#">职业资格</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">试题搜索</a></li>
+                        <li><a href="#">下载指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">知乎专栏</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 考题吧 版权所有 | 仅供学习交流使用</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+          </html>

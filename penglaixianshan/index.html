@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓬莱仙山-东方神话仙境的文化溯源与旅游指南</title>
+    <meta name="description" content="本站致力于探索中国神话传说中的蓬莱仙山，提供关于蓬莱阁的历史沿革、地理位置、道教文化、旅游攻略及海上奇观的详细介绍。">
+    <meta name="keywords" content="蓬莱仙山, 蓬莱阁, 烟台旅游, 东方神话, 道教名山, 八仙过海">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c5e4d;
+            --secondary-color: #d4a017;
+            --accent-color: #8fbc8f;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f7;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-family: "KaiTi", "STKaiti", serif;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: "KaiTi", serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/penglai_mist/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-family: "KaiTi", "STKaiti", serif;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b8860b;
+            transform: translateY(-2px);
+        }
+
+        /* Mythology Section */
+        .mythology {
+            background-color: var(--white);
+        }
+
+        .myth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .myth-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-family: "KaiTi", serif;
+        }
+
+        .myth-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .myth-legend {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .myth-legend h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .myth-legend p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Architecture Section */
+        .architecture {
+            background-color: var(--bg-light);
+        }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Travel Guide Section */
+        .travel {
+            background-color: var(--white);
+        }
+
+        .travel-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            font-family: "KaiTi", serif;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Faq Section */
+        .faq {
+            background-color: var(--bg-light);
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+            color: var(--text-light);
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            font-size: 1.5rem;
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a3c32;
+            color: #ccc;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .myth-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-item {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">蓬莱<span>仙境</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#mythology" class="active">神话传说</a></li>
+                    <li><a href="#architecture">名胜古迹</a></li>
+                    <li><a href="#travel">旅游指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>蓬莱仙山</h1>
+                <p>探寻东方神话中的海上仙岛，感受道教文化的博大精深与人间烟火的独特交融。</p>
+                <a href="#travel" class="btn">开启寻仙之旅</a>
+            </div>
+        </section>
+
+        <!-- Mythology Section -->
+        <section id="mythology" class="section mythology">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">神话起源</h2>
+                    <p class="section-subtitle">中国传统文化中“三神山”之一</p>
+                </div>
+                <div class="myth-grid">
+                    <div class="myth-text">
+                        <h2>海上方丈，蓬莱之境</h2>
+                        <p>蓬莱，是中国神话传说中著名的“海上仙山”之一。古人认为，渤海之中有三座神山：蓬莱、方丈、瀛洲，山上居住着长生不老的神仙，拥有长生不老药和奇珍异宝。</p>
+                        <p>这一传说最早见于《山海经》，后经《史记》等典籍记载，逐渐成为中华民族对超脱尘世、追求永恒的象征。秦始皇东巡求仙，汉武帝遣人入海寻找，皆为此传说所引。</p>
+                        <p>在民间信仰中，蓬莱更是“八仙过海”等故事的发生地，承载着人们对自由、逍遥和超凡境界的向往。</p>
+                    </div>
+                    <div class="myth-legend">
+                        <h3>八仙过海</h3>
+                        <p>相传八位神仙在蓬莱阁上聚会饮酒，酒酣耳热之际，决定各自显通法力渡海。铁拐李将葫芦投下化为桥梁，汉钟离、张果老等将各自宝物投入海中，凭借宝物乘风破浪，各显神通。这一典故不仅展现了八仙的个性，更寓意着“自度度人，各显神通”的精神。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="section architecture">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">名胜古迹</h2>
+                    <p class="section-subtitle">现实中的蓬莱阁与蓬莱阁景区</p>
+                </div>
+                <div class="arch-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/penglai_tower/600/400.jpg" alt="蓬莱阁远景" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">蓬莱阁</h3>
+                            <p class="card-desc">中国四大名楼之一，位于山东烟台蓬莱市，素有“人间仙境”之称。登阁可眺望黄渤海分界线，感受海市蜃楼的神秘奇观。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/sea_mist/600/400.jpg" alt="海市蜃楼" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">海市蜃楼</h3>
+                            <p class="card-desc">蓬莱最负盛名的自然奇观。在春夏之交或雨后初晴时，海面上常会出现虚幻的楼台殿阁、山川草木，宛如仙境再现。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/temple/600/400.jpg" alt="八仙过海景区" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">八仙过海景区</h3>
+                            <p class="card-desc">以神话传说为主题的大型文化景区，通过雕塑、建筑群生动再现了八仙渡海的传说故事，是体验民俗文化的好去处。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide Section -->
+        <section id="travel" class="section travel">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">旅游指南</h2>
+                    <p class="section-subtitle">如何规划您的蓬莱之旅</p>
+                </div>
+                <div class="travel-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>交通出行</h3>
+                            <p>蓬莱市交通便利，高铁直达烟台站，再转乘城际巴士或出租车即可抵达景区。自驾游也是欣赏沿途风光的好方式。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>最佳时节</h3>
+                            <p>每年的5月至9月是游览蓬莱的最佳时期。此时气候宜人，且出现海市蜃楼的概率相对较高。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>游玩建议</h3>
+                            <p>建议预留一整天时间游览蓬莱阁及周边景区。清晨可前往蓬莱阁看日出，傍晚则可体验“夜游蓬莱”的灯光秀。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                    <p class="section-subtitle">关于蓬莱的实用信息</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">蓬莱在哪里？</div>
+                        <div class="faq-answer">
+                            <p>蓬莱位于山东省烟台市，地处胶东半岛最北端，濒临黄海与渤海的交汇处。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">海市蜃楼是真的吗？</div>
+                        <div class="faq-answer">
+                            <p>海市蜃楼是一种大气光学现象，是光线在垂直方向上密度不同的大气层中发生折射和全反射产生的。蓬莱因其特殊的地理位置和气候条件，成为观赏这一现象的热门地点。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">蓬莱阁需要门票吗？</div>
+                        <div class="faq-answer">
+                            <p>蓬莱阁景区实行门票制度，包含蓬莱阁、戚继光故里、水城等多个景点。建议提前在官方渠道查询门票价格及优惠政策。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于蓬莱</h4>
+                    <ul>
+                        <li><a href="#">神话传说</a></li>
+                        <li><a href="#">历史文化</a></li>
+                        <li><a href="#">道教文化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>旅游服务</h4>
+                    <ul>
+                        <li><a href="#">景区门票</a></li>
+                        <li><a href="#">酒店预订</a></li>
+                        <li><a href="#">交通指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>地址：山东省烟台市蓬莱区</li>
+                        <li>电话：0535-xxxxxxx</li>
+                        <li>邮箱：contact@example.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 蓬莱仙境文化探索网. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

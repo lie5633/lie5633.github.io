@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="情侣吧 - 专为情侣打造的甜蜜互动空间，提供情侣日常记录、恋爱指南、纪念日倒计时及情侣专属游戏，记录你们的每一个心动瞬间。">
+    <meta name="keywords" content="情侣吧,情侣日常,恋爱指南,纪念日,情侣游戏">
+    <title>情侣吧-记录甜蜜时光与恋爱指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff9eb5;
+            --bg-color: #fff5f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --accent-green: #4cd137;
+            --shadow: 0 4px 12px rgba(255, 107, 129, 0.15);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .user-actions button:hover {
+            background-color: #ff4757;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff5f6 0%, #ffe3e3 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            padding: 8px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0 15px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+
+        /* 功能入口 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 内容区布局 */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* 左侧内容 */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 20px;
+        }
+
+        .post-thumb {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #eee;
+            flex-shrink: 0;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .post-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background: #ffe3e3;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .post-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .post-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 右侧侧边栏 */
+        aside .widget {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .widget h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background: linear-gradient(to right, #ff9eb5, #ff6b81);
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius);
+        }
+
+        .countdown-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-val {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .time-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-item a {
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 180px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-cloud a {
+            background: #f5f5f5;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .tag-cloud a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* 纪念日日历 */
+        .calendar-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .cal-day-name {
+            font-weight: bold;
+            color: var(--text-light);
+            font-size: 12px;
+            padding-bottom: 10px;
+        }
+
+        .cal-day {
+            padding: 8px 0;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cal-day:hover {
+            background-color: #ffe3e3;
+        }
+
+        .cal-day.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .cal-day.has-event::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 2px auto 0;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: #999;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .post-card {
+                flex-direction: column;
+            }
+
+            .post-thumb {
+                width: 100%;
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">💑 情侣吧</a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">恋爱指南</a></li>
+                <li><a href="#">情侣日记</a></li>
+                <li><a href="#">纪念日</a></li>
+                <li><a href="#">游戏互动</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button>登录 / 注册</button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>记录你们的每一个心动瞬间</h1>
+        <p>在这里分享甜蜜日常，获取恋爱保鲜秘籍，共同规划未来的每一步。</p>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索恋爱技巧、纪念日礼物...">
+            <button>搜索</button>
+        </div>
+    </section>
+
+    <!-- 功能入口 -->
+    <section class="features-grid">
+        <article class="feature-card">
+            <span class="feature-icon">📅</span>
+            <h3>纪念日倒计时</h3>
+            <p>自动计算相识、相恋、结婚纪念日，重要日子不错过。</p>
+        </article>
+        <article class="feature-card">
+            <span class="feature-icon">📝</span>
+            <h3>情侣日记</h3>
+            <p>记录每日点滴，共同编辑专属回忆相册。</p>
+        </article>
+        <article class="feature-card">
+            <span class="feature-icon">🎁</span>
+            <h3>礼物灵感库</h3>
+            <p>根据伴侣喜好推荐礼物，让惊喜更有心意。</p>
+        </article>
+        <article class="feature-card">
+            <span class="feature-icon">🎮</span>
+            <h3>情侣小游戏</h3>
+            <p>通过趣味问答增进了解，发现彼此的默契。</p>
+        </article>
+    </section>
+
+    <!-- 主体内容区 -->
+    <div class="content-layout">
+        
+        <!-- 左侧文章列表 -->
+        <section>
+            <div class="section-title">
+                <h2>热门恋爱指南</h2>
+                <a href="#">查看更多 &gt;</a>
+            </div>
+
+            <article class="post-card">
+                <img src="https://picsum.photos/seed/love1/200/200" alt="恋爱技巧" class="post-thumb">
+                <div class="post-content">
+                    <span class="post-tag">相处之道</span>
+                    <h3 class="post-title">异地恋如何保持高频率互动？这5个技巧很实用</h3>
+                    <p class="post-desc">异地恋最怕的是沉默和疏远。通过视频通话、分享生活碎片、定期的惊喜安排，可以让距离感大大降低...</p>
+                    <div class="post-meta">
+                        <span>作者：小甜心</span>
+                        <span>• 2小时前</span>
+                        <span>• 1.2w 阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <img src="https://picsum.photos/seed/love2/200/200" alt="纪念日礼物" class="post-thumb">
+                <div class="post-content">
+                    <span class="post-tag">礼物推荐</span>
+                    <h3 class="post-title">2024年最值得送的七夕礼物清单，预算从低到高</h3>
+                    <p class="post-desc">无论你的预算是多少，一份用心挑选的礼物都能传达爱意。本文整理了实用型、浪漫型和高颜值型礼物...</p>
+                    <div class="post-meta">
+                        <span>作者：礼物君</span>
+                        <span>• 5小时前</span>
+                        <span>• 8k 阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <img src="https://picsum.photos/seed/love3/200/200" alt="婚姻生活" class="post-thumb">
+                <div class="post-content">
+                    <span class="post-tag">婚姻生活</span>
+                    <h3 class="post-title">结婚三年后，我们是如何避免生活陷入平淡的？</h3>
+                    <p class="post-desc">很多情侣在结婚后逐渐变成了室友。定期约会、共同学习新技能、保持各自的小爱好，是维持激情的关键。</p>
+                    <div class="post-meta">
+                        <span>作者：幸福家庭</span>
+                        <span>• 昨天</span>
+                        <span>• 5k 阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="section-title" style="margin-top: 30px;">
+                <h2>情侣精选游戏</h2>
+                <a href="#">更多游戏 &gt;</a>
+            </div>
+            
+            <article class="post-card" style="align-items: center;">
+                <img src="https://picsum.photos/seed/game1/200/200" alt="情侣游戏" class="post-thumb">
+                <div class="post-content">
+                    <h3 class="post-title">真心话大冒险：升级版，看看你们有多了解彼此</h3>
+                    <p class="post-desc">包含性格测试、生活习惯大比拼、未来规划问答，适合周末晚上增进感情。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <!-- 纪念日倒计时 -->
+            <div class="widget countdown-box">
+                <div class="countdown-title">下一个重要日子</div>
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <span class="time-val">12</span>
+                        <span class="time-label">天</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-val">08</span>
+                        <span class="time-label">时</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-val">45</span>
+                        <span class="time-label">分</span>
+                    </div>
+                </div>
+                <p style="margin-top:10px; font-size:12px; opacity:0.9;">距离你们相爱三周年还有12天08小时45分</p>
+            </div>
+
+            <!-- 热门话题 -->
+            <div class="widget">
+                <h3>🔥 热门话题</h3>
+                <div class="list-item">
+                    <a href="#"># 第一次见家长穿什么</a>
+                    <span style="color:#999">2.3w</span>
+                </div>
+                <div class="list-item">
+                    <a href="#"># 如何挑选结婚戒指</a>
+                    <span style="color:#999">1.8w</span>
+                </div>
+                <div class="list-item">
+                    <a href="#"># 恋爱中的AA制</a>
+                    <span style="color:#999">1.5w</span>
+                </div>
+                <div class="list-item">
+                    <a href="#"># 婚后谁管钱最合适</a>
+                    <span style="color:#999">1.2w</span>
+                </div>
+                <div class="list-item">
+                    <a href="#"># 蜜月旅行去哪里</a>
+                    <span style="color:#999">9k</span>
+                </div>
+            </div>
+
+            <!-- 标签云 -->
+            <div class="widget">
+                <h3>🏷️ 情侣标签</h3>
+                <div class="tag-cloud">
+                    <a href="#">恋爱技巧</a>
+                    <a href="#">结婚准备</a>
+                    <a href="#">备孕指南</a>
+                    <a href="#">异地恋</a>
+                    <a href="#">婆媳关系</a>
+                    <a href="#">情侣穿搭</a>
+                    <a href="#">情感咨询</a>
+                    <a href="#">甜蜜瞬间</a>
+                    <a href="#">求婚策划</a>
+                </div>
+            </div>
+
+            <!-- 日历小部件 -->
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <h3>2024年 10月</h3>
+                    <span style="font-size:12px; color:#999;">恋爱第 842 天</span>
+                </div>
+                <div class="calendar-grid">
+                    <div class="cal-day-name">日</div>
+                    <div class="cal-day-name">一</div>
+                    <div class="cal-day-name">二</div>
+                    <div class="cal-day-name">三</div>
+                    <div class="cal-day-name">四</div>
+                    <div class="cal-day-name">五</div>
+                    <div class="cal-day-name">六</div>
+                    <!-- 模拟日期 -->
+                    <div class="cal-day">1</div>
+                    <div class="cal-day">2</div>
+                    <div class="cal-day">3</div>
+                    <div class="cal-day">4</div>
+                    <div class="cal-day">5</div>
+                    <div class="cal-day">6</div>
+                    <div class="cal-day">7</div>
+                    <div class="cal-day">8</div>
+                    <div class="cal-day">9</div>
+                    <div class="cal-day">10</div>
+                    <div class="cal-day">11</div>
+                    <div class="cal-day">12</div>
+                    <div class="cal-day">13</div>
+                    <div class="cal-day">14</div>
+                    <div class="cal-day">15</div>
+                    <div class="cal-day">16</div>
+                    <div class="cal-day">17</div>
+                    <div class="cal-day">18</div>
+                    <div class="cal-day">19</div>
+                    <div class="cal-day">20</div>
+                    <div class="cal-day">21</div>
+                    <div class="cal-day">22</div>
+                    <div class="cal-day">23</div>
+                    <div class="cal-day">24</div>
+                    <div class="cal-day">25</div>
+                    <div class="cal-day">26</div>
+                    <div class="cal-day">27</div>
+                    <div class="cal-day">28</div>
+                    <div class="cal-day">29</div>
+                    <div class="cal-day">30</div>
+                    <div class="cal-day">31</div>
+                </div>
+                <div style="margin-top:10px; font-size:12px; color:#666; text-align:center;">
+                    <span style="color:var(--primary-color)">●</span> 有特别纪念日
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于情侣吧</h4>
+                <p style="font-size:14px; line-height:1.8;">
+                    情侣吧是一个专注于为情侣提供恋爱指南、情感交流、纪念日记录和互动游戏的在线社区。我们致力于帮助每一对伴侣记录甜蜜时光，增进感情。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>栏目导航</h4>
+                <ul>
+                    <li><a href="#">恋爱指南</a></li>
+                    <li><a href="#">情侣日记</a></li>
+                    <li><a href="#">礼物推荐</a></li>
+                    <li><a href="#">情感咨询</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="font-size:14px;">获取最新的恋爱技巧和活动资讯</p>
+                <div style="margin-top:10px; display:flex; gap:10px;">
+                    <span style="width:30px; height:30px; background:#555; border-radius:50%; display:block;"></span>
+                    <span style="width:30px; height:30px; background:#555; border-radius:50%; display:block;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 情侣吧 版权所有 | 记录爱，分享爱</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                      </html>

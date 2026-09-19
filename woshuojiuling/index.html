@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="我说九零后 - 90后一代的集体记忆与成长记录。探讨90后的人生阶段、职场现状、生活方式与情感故事，记录属于这一代人的独特印记与时代变迁。">
+    <meta name="keywords" content="我说九零后,90后,90后回忆,90后现状,90后生活,90后职场,90后情感">
+    <title>我说九零后-一代人的集体记忆与时代印记</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #f1c40f;
+            --text-dark: #2c3e50;
+            --text-gray: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Features / Stats */
+        .stats-bar {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 30px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Content Grid */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 12px;
+        }
+
+        .topic-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .topic-list span {
+            background-color: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 2px var(--primary-color);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f1f2f6;
+            padding: 40px 0 20px;
+            border-top: 1px solid #e1e1e1;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner nav {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .header-inner nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 10px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">我说<span>九零后</span></a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#memories">回忆杀</a></li>
+                    <li><a href="#lifestyle">生活方式</a></li>
+                    <li><a href="#career">职场进阶</a></li>
+                    <li><a href="#topics">热门话题</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>90后，正在成为社会的中流砥柱</h1>
+                <p>从懵懂少年到职场精英，我们经历了互联网的爆发、娱乐方式的变革。这里记录90后的成长轨迹、情感共鸣与时代印记。</p>
+                <div class="hero-tags">
+                    <span class="tag">#怀旧金曲</span>
+                    <span class="tag">#童年游戏</span>
+                    <span class="tag">#90后育儿</span>
+                    <span class="tag">#职场转型</span>
+                    <span class="tag">#买房记</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>1.8亿</h3>
+                    <p>中国90后人口数量</p>
+                </div>
+                <div class="stat-item">
+                    <h3>35岁</h3>
+                    <p>90后即将步入的年龄</p>
+                </div>
+                <div class="stat-item">
+                    <h3>85%</h3>
+                    <p>90后关注自我成长</p>
+                </div>
+                <div class="stat-item">
+                    <h3>60%</h3>
+                    <p>90后愿意为兴趣买单</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline / History -->
+        <section class="content-section" id="memories">
+            <div class="container">
+                <h2 class="section-title">90后成长大事记</h2>
+                <p class="section-subtitle">每一个节点，都是我们共同的记忆</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">1990s - 2000s</span>
+                            <h3>网络启蒙与游戏时代</h3>
+                            <p>网吧文化的兴起，从红白机到电脑游戏，互联网开始改变我们的生活方式和社交圈子。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2008年</span>
+                            <h3>奥运与互联网爆发</h3>
+                            <p>北京奥运会见证了民族自豪感，移动互联网的普及让90后彻底融入数字时代。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2013年</span>
+                            <h3>全民创业与移动支付</h3>
+                            <p>淘宝双11的狂欢，微信的普及，90后开始尝试创业，习惯于移动支付带来的便捷。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2020s</span>
+                            <h3>90后成为主力军</h3>
+                            <p>90后步入而立之年，成为职场中坚力量，同时也面临着成家立业、养育下一代的压力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="content-section" style="background-color: var(--white);">
+            <div class="container">
+                <div class="main-content">
+                    <!-- Articles List -->
+                    <div class="articles-list">
+                        <h2 class="section-title" style="text-align: left; font-size: 1.5rem;">深度好文</h2>
+                        
+                        <article class="card" style="flex-direction: row; margin-bottom: 30px;">
+                            <div class="card-image" style="width: 300px; height: 100%;">
+                                <img src="https://picsum.photos/seed/90shome/300/200" alt="90后装修">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span>生活方式</span>
+                                    <span>2023-10-24</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">90后装修实录：拒绝“爸妈觉得好”，只选自己想要的</a></h3>
+                                <p class="card-excerpt">当90后接过装修的大权，家不再是千篇一律的“客厅大白墙”，而是充满了北欧风、极简主义和个性化软装的私密空间。我们如何用有限的预算打造梦想中的家？</p>
+                                <div class="card-footer">
+                                    <a href="#" class="read-more">阅读全文 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card" style="flex-direction: row; margin-bottom: 30px;">
+                            <div class="card-image" style="width: 300px; height: 100%;">
+                                <img src="https://picsum.photos/seed/90scareer/300/200" alt="职场">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span>职场进阶</span>
+                                    <span>2023-10-22</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">35岁危机？90后职场人的自我救赎与转型之路</a></h3>
+                                <p class="card-excerpt">互联网大厂裁员潮下，90后如何面对职业瓶颈？从“996”到“拒绝内卷”，我们正在重新定义工作的意义，寻找工作与生活的平衡点。</p>
+                                <div class="card-footer">
+                                    <a href="#" class="read-more">阅读全文 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card" style="flex-direction: row; margin-bottom: 30px;">
+                            <div class="card-image" style="width: 300px; height: 100%;">
+                                <img src="https://picsum.photos/seed/90sfilm/300/200" alt="电影">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span>娱乐</span>
+                                    <span>2023-10-20</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">那些年，陪我们长大的国产动画片</a></h3>
+                                <p class="card-excerpt">从《黑猫警长》到《葫芦兄弟》，再到《灌篮高手》和《数码宝贝》。这些动画不仅是童年记忆，更塑造了90后的价值观和审美。</p>
+                                <div class="card-footer">
+                                    <a href="#" class="read-more">阅读全文 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div style="text-align: center; margin-top: 40px;">
+                            <a href="#" class="btn">加载更多文章</a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <!-- Hot Topics -->
+                        <div class="widget">
+                            <h3 class="widget-title">热门话题</h3>
+                            <ul class="topic-list">
+                                <li>
+                                    <a href="#">#90后整顿职场</a>
+                                    <span>1.2w</span>
+                                </li>
+                                <li>
+                                    <a href="#">#第一批90后退休</a>
+                                    <span>8.5k</span>
+                                </li>
+                                <li>
+                                    <a href="#">#童年零食回忆</a>
+                                    <span>5.3k</span>
+                                </li>
+                                <li>
+                                    <a href="#">#90后养生</a>
+                                    <span>4.1k</span>
+                                </li>
+                                <li>
+                                    <a href="#">#回村过年</a>
+                                    <span>3.9k</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Recommended Reading -->
+                        <div class="widget">
+                            <h3 class="widget-title">推荐阅读</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">为什么90后越来越不爱发朋友圈了？</a></li>
+                                <li><a href="#">90后父母的教育焦虑：不让孩子输在起跑线</a></li>
+                                <li><a href="#">那些年我们追过的港台明星</a></li>
+                                <li><a href="#">从“非主流”到“佛系”：审美变迁史</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Quote Widget -->
+                        <div class="widget" style="background-color: #fff5f5; border: 1px solid #ffe0e0;">
+                            <p style="font-style: italic; color: var(--text-dark);">“90后不是垮掉的一代，我们只是把精力花在了自己真正在意的地方。”</p>
+                            <p style="text-align: right; margin-top: 10px; font-weight: bold;">—— 网友评论</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifestyle Grid -->
+        <section class="content-section" id="lifestyle">
+            <div class="container">
+                <h2 class="section-title">90后生活图鉴</h2>
+                <p class="section-subtitle">你的生活，是否也这样？</p>
+                
+                <div class="grid-layout">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/coffee/400/300" alt="咖啡">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">咖啡续命指南</h3>
+                            <p class="card-excerpt">对于当代90后来说，咖啡不是饮料，是续命水。手冲、拿铁、美式，你最喜欢哪一种？</p>
+                            <div class="card-footer">
+                                <a href="#" class="read-more">查看详情 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/travel/400/300" alt="旅行">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">穷游与特种兵</h3>
+                            <p class="card-excerpt">说走就走的旅行虽然奢侈，但周末的“特种兵式旅游”却成了90后的新时尚。</p>
+                            <div class="card-footer">
+                                <a href="#" class="read-more">查看详情 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/fitness/400/300" alt="健身">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">健身房打卡</h3>
+                            <p class="card-excerpt">办了卡却不去的90后大有人在，但坚持健身的他们正在悄悄变美变强。</p>
+                            <div class="card-footer">
+                                <a href="#" class="read-more">查看详情 →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>加入我们的圈子</h2>
+                <p>无论你是正在奋斗的职场人，还是享受生活的90后，这里都有你的声音。</p>
+                <a href="#" class="btn">订阅我们的周刊</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我说九零后</h4>
+                    <p>一个记录90后一代人成长、奋斗与生活的社区。我们关注每一个平凡而真实的瞬间。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">回忆杀</a></li>
+                        <li><a href="#">职场观察</a></li>
+                        <li><a href="#">情感树洞</a></li>
+                        <li><a href="#">生活指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">老照片网</a></li>
+                        <li><a href="#">互联网档案馆</a></li>
+                        <li><a href="#">怀旧游戏厅</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>投稿邮箱：editor@90shou.com</li>
+                        <li>商务合作：bd@90shou.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我说九零后. All Rights Reserved. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                document.getElementById('main-nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+  </html>

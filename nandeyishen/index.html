@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>难得一身好本领 - 实用技能与硬核知识分享平台</title>
+    <meta name="description" content="难得一身好本领，专注于提升个人核心竞争力的实用技能网站。涵盖编程开发、专业设计、职场硬技能及生活百科，为您提供系统的学习路径与实战指南。">
+    <meta name="keywords" content="难得一身好本领,技能提升,硬核知识,实战教程,职业发展,编程开发,设计技巧">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-actions button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .nav-actions button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4ca1af 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-search {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .hero-search input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .hero-search button {
+            padding: 0 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--card-bg);
+            margin-top: -2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        /* Skill Cards Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            padding: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Interactive Section (Tabs) */
+        .tabs-container {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f1f3f5;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            background-color: rgba(0,0,0,0.02);
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">难得<span>一身好本领</span></a>
+            <nav class="nav-links">
+                <a href="#skills">核心技能</a>
+                <a href="#features">平台优势</a>
+                <a href="#community">学习社区</a>
+                <a href="#resources">资源下载</a>
+            </nav>
+            <div class="nav-actions">
+                <button>立即提升</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>难得一身好本领</h1>
+                <p>拒绝平庸，掌握核心硬技能。无论你是职场新人还是资深专家，这里都有助你突破瓶颈、实现自我价值的实战指南与深度教程。</p>
+                <div class="hero-search">
+                    <input type="text" placeholder="搜索编程、设计、管理或生活技能...">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">精品课程</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10w+</span>
+                    <span class="stat-label">实战案例</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50w+</span>
+                    <span class="stat-label">技能爱好者</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">专家答疑</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Skills Section -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>硬核技能矩阵</h2>
+                    <p>构建你的核心竞争力，从底层逻辑到实战应用，全方位覆盖</p>
+                </div>
+                
+                <div class="grid-3">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">开发技术</span>
+                            <img src="https://picsum.photos/seed/tech1/400/250" alt="编程开发">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">全栈开发进阶</h3>
+                            <p class="card-desc">从HTML/CSS到Node.js/Python，掌握现代Web开发的核心技术栈，快速构建高性能应用。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">📖 42 章节</span>
+                                <span class="meta-item">⏱ 8 小时</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">数字设计</span>
+                            <img src="https://picsum.photos/seed/design2/400/250" alt="UI/UX设计">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">UI/UX 交互设计</h3>
+                            <p class="card-desc">学习用户心理学与界面美学，掌握Figma、Sketch等工具，设计出既美观又好用的产品。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">🎨 30+ 案例库</span>
+                                <span class="meta-item">⏱ 12 小时</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">职场管理</span>
+                            <img src="https://picsum.photos/seed/manager3/400/250" alt="高效管理">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">高效项目管理</h3>
+                            <p class="card-desc">掌握敏捷开发与甘特图，提升团队协作效率，从执行者向管理者蜕变。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">📊 流程图解</span>
+                                <span class="meta-item">⏱ 6 小时</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">数据分析</span>
+                            <img src="https://picsum.photos/seed/data4/400/250" alt="数据洞察">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">商业数据分析</h3>
+                            <p class="card-desc">利用Excel、SQL与Tableau挖掘数据价值，用数据驱动业务决策。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">📈 实战报表</span>
+                                <span class="meta-item">⏱ 10 小时</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">生活百科</span>
+                            <img src="https://picsum.photos/seed/life5/400/250" alt="生活技能">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">生活实用技能</h3>
+                            <p class="card-desc">涵盖烹饪、急救、理财规划等实用技能，提升生活品质与应对突发事件的能力。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">🏠 日常应用</span>
+                                <span class="meta-item">⏱ 4 小时</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-tag">外语学习</span>
+                            <img src="https://picsum.photos/seed/lang6/400/250" alt="英语进阶">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">职场英语速成</h3>
+                            <p class="card-desc">突破哑巴英语，掌握商务谈判、邮件写作及会议沟通的实战话术。</p>
+                            <div class="card-meta">
+                                <span class="meta-item">🗣 口语特训</span>
+                                <span class="meta-item">⏱ 15 小时</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Features -->
+        <section id="features" class="section-padding features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择我们</h2>
+                    <p>我们致力于打造最硬核、最实用的技能学习环境</p>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>实战导向</h3>
+                        <p>拒绝纸上谈兵，每一个知识点都配有可运行的代码、可操作的案例和真实的业务场景。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>专家背书</h3>
+                        <p>内容均由行业资深从业者、技术专家及拥有多年实战经验的一线管理者审核编写。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>持续更新</h3>
+                        <p>技术栈与行业趋势变化极快，我们保持高频内容更新，确保你学到的永远是最新技术。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <h3>社群互助</h3>
+                        <p>加入数千人的学习社群，遇到难题时能快速获得同行者的帮助与经验分享。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ / Interactive Section -->
+        <section id="community" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题与解答</h2>
+                    <p>关于提升技能、学习路径及平台服务的疑问</p>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" onclick="openTab(event, 'skill-path')">技能提升路径</button>
+                        <button class="tab-btn" onclick="openTab(event, 'resource-download')">资源下载指南</button>
+                        <button class="tab-btn" onclick="openTab(event, 'membership')">会员权益</button>
+                    </div>
+                    
+                    <div id="skill-path" class="tab-content active">
+                        <h3>如何规划我的技能提升路线？</h3>
+                        <p style="margin-bottom: 1rem; color: #666;">建议根据你的职业目标进行选择：</p>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 我是计算机专业毕业生，想进大厂，应该学什么？</div>
+                            <div class="faq-answer">A: 建议深入掌握数据结构与算法（LeetCode刷题），熟悉主流框架（Spring Boot, React/Vue），并了解分布式系统原理。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 我转行想做UI设计，需要具备哪些基础？</div>
+                            <div class="faq-answer">A: 需要掌握审美基础（色彩、排版）、设计工具（PS/AI/Figma）以及用户交互逻辑。可以从模仿优秀作品开始练习。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 零基础如何开始学习编程？</div>
+                            <div class="faq-answer">A: 先从Python或JavaScript入手，理解变量、循环、函数等基本概念。推荐配合《Python编程：从入门到实践》等书籍进行系统学习。</div>
+                        </div>
+                    </div>
+
+                    <div id="resource-download" class="tab-content">
+                        <h3>如何获取学习所需的工具与素材？</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 设计软件哪里下载？</div>
+                            <div class="faq-answer">A: 请访问官方网站或正版应用商店下载。对于学习阶段，我们推荐使用社区版或试用版，确保软件的稳定性与安全性。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 课程中的源码怎么获取？</div>
+                            <div class="faq-answer">A: 在每个课程章节的“资源下载”板块，我们可以提供对应的GitHub仓库链接或压缩包下载。</div>
+                        </div>
+                    </div>
+
+                    <div id="membership" class="tab-content">
+                        <h3>平台会员有哪些权益？</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 会员可以观看所有课程吗？</div>
+                            <div class="faq-answer">A: 是的，成为会员后即可无限制访问平台内所有付费课程及高清视频资料。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Q: 会员是否包含一对一辅导？</div>
+                            <div class="faq-answer">A: 高级会员权益包含定期举办的线上答疑会及简历修改服务。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-block;">难得<span>一身好本领</span></a>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        专注于为个人提供高质量、实战型的技能提升服务，助力每一位学习者掌握难得一身好本领，从容应对职场挑战。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">编程开发</a></li>
+                        <li><a href="#">产品经理</a></li>
+                        <li><a href="#">UI/UX设计</a></li>
+                        <li><a href="#">数据分析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="#">技术文档</a></li>
+                        <li><a href="#">工具下载</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="#">活动直播</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">合作洽谈</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 难得一身好本领. 保留所有权利. 本站内容仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Functionality
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show current tab and add active class to button
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

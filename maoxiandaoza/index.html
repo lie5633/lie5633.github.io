@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛砸卷攻略-成功率计算、技巧与防坑指南</title>
+    <meta name="description" content="本站提供最全面的冒险岛砸卷攻略，包含成功率计算公式、强化技巧、防骗指南及最新装备强化建议，助你打造毕业神装。">
+    <meta name="keywords" content="冒险岛砸卷攻略,冒险岛强化,成功率计算,冒险岛装备强化">
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #cc9900;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2a2a2a;
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
+            --success: #4caf50;
+            --danger: #f44336;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, #333 0%, #1a1a1a 100%);
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/mushroom/1200/600') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #000;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        /* Formula Calculator */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: #3a3a3a;
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .result-box {
+            background: rgba(255, 204, 0, 0.1);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .result-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .tip-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Equipment List */
+        .equip-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .equip-item {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+        }
+
+        .equip-icon {
+            width: 50px;
+            height: 50px;
+            background: #444;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .equip-info {
+            flex: 1;
+        }
+
+        .equip-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .equip-stats {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .rank-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rank-ss { background: rgba(76, 175, 80, 0.2); color: var(--success); }
+        .rank-s { background: rgba(33, 150, 243, 0.2); color: #2196f3; }
+        .rank-a { background: rgba(255, 193, 7, 0.2); color: var(--primary); }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .faq-question:hover {
+            background: #333;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            font-size: 1.5rem;
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .calculator-grid { grid-template-columns: 1fr; }
+            .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+            .equip-item { flex-direction: column; text-align: center; }
+            .equip-icon { margin-right: 0; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">冒险岛·强化攻略</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#calculator">成功率计算</a></li>
+                <li><a href="#tips">强化技巧</a></li>
+                <li><a href="#equip">装备推荐</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>冒险岛砸卷攻略</h1>
+            <p>掌握成功率计算公式，理性强化装备。从平民到毕业，这里有最详尽的防坑指南与成功率数据。</p>
+            <a href="#calculator" class="cta-button">开始计算成功率</a>
+        </div>
+    </section>
+
+    <section class="container" id="calculator">
+        <div class="section-title">
+            <h2>成功率计算器</h2>
+            <p>输入当前强化等级与目标，预估成功率与失败概率</p>
+        </div>
+        <div class="calculator-grid">
+            <div class="input-area">
+                <div class="form-group">
+                    <label>装备类型</label>
+                    <select id="equipType">
+                        <option value="1">武器 (1-6阶)</option>
+                        <option value="2">防具 (1-6阶)</option>
+                        <option value="3">戒指 (1-6阶)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>当前强化等级</label>
+                    <input type="number" id="currentLevel" value="0" min="0" max="6">
+                </div>
+                <div class="form-group">
+                    <label>目标强化等级</label>
+                    <input type="number" id="targetLevel" value="6" min="0" max="6">
+                </div>
+                <button class="cta-button" onclick="calculateSuccess()" style="width: 100%; border-radius: 4px;">计算结果</button>
+            </div>
+            <div class="result-box">
+                <div class="result-value" id="successRate">0%</div>
+                <div class="result-desc" id="resultDesc">请输入参数点击计算</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="tips">
+        <div class="section-title">
+            <h2>强化技巧与防坑指南</h2>
+        </div>
+        <div class="tips-grid">
+            <article class="tip-card">
+                <h3>1. 不要贪心</h3>
+                <p>强化有风险，投资需谨慎。6阶强化失败后装备会损坏，请确保背包有足够的保护卷轴。</p>
+            </article>
+            <article class="tip-card">
+                <h3>2. 观察服务器波动</h3>
+                <p>强化成功率并非绝对固定。在服务器维护后或特定活动期间，成功率可能会有所提升。</p>
+            </article>
+            <article class="tip-card">
+                <h3>3. 保护卷轴使用时机</h3>
+                <p>建议在强化到5阶时开始使用保护卷轴，这是成功率大幅下降的节点，也是最容易损坏装备的时期。</p>
+            </article>
+            <article class="tip-card">
+                <h3>4. 饱和状态</h3>
+                <p>在强化前确保角色处于“饱食度”满状态，这能略微提升强化成功率。</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="container" id="equip">
+        <div class="section-title">
+            <h2>热门装备强化参考</h2>
+        </div>
+        <div class="equip-list">
+            <div class="equip-item">
+                <div class="equip-icon">⚔️</div>
+                <div class="equip-info">
+                    <div class="equip-name">黑龙之牙 (武器)</div>
+                    <div class="equip-stats">目标：6阶+6%伤害 | 成本：约 5000万金币</div>
+                </div>
+                <span class="rank-badge rank-s">推荐</span>
+            </div>
+            <div class="equip-item">
+                <div class="equip-icon">🛡️</div>
+                <div class="equip-info">
+                    <div class="equip-name">神兽铠甲 (防具)</div>
+                    <div class="equip-stats">目标：6阶+12%全属性 | 成本：约 3000万金币</div>
+                </div>
+                <span class="rank-badge rank-a">进阶</span>
+            </div>
+            <div class="equip-item">
+                <div class="equip-icon">💍</div>
+                <div class="equip-info">
+                    <div class="equip-name">远古戒指 (戒指)</div>
+                    <div class="equip-stats">目标：6阶+10%所有属性 | 成本：约 2000万金币</div>
+                </div>
+                <span class="rank-badge rank-s">毕业必备</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="faq">
+        <div class="section-title">
+            <h2>常见问题 (FAQ)</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">强化失败后装备会消失吗？</div>
+            <div class="faq-answer">只有强化到6阶失败才会损坏装备。1-5阶失败不会损坏，但会扣除强化等级。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">哪里可以买到最便宜的强化卷轴？</div>
+            <div class="faq-answer">建议关注游戏内的拍卖行（AH），多看多比较。部分NPC商店在特定活动期间会打折。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">强化成功率有公式吗？</div>
+            <div class="faq-answer">有。成功率大致为 100% - (当前等级 * 10%)。例如5阶强化6阶成功率约为50%。</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">联系管理员</a>
+            <a href="#">免责声明</a>
+        </div>
+        <p class="copyright">© 2023 冒险岛砸卷攻略网 - All Rights Reserved. 本站为玩家整理攻略，非官方网站。</p>
+    </div>
+</footer>
+
+<script>
+    function calculateSuccess() {
+        const type = parseInt(document.getElementById('equipType').value);
+        const current = parseInt(document.getElementById('currentLevel').value);
+        const target = parseInt(document.getElementById('targetLevel').value);
+
+        if (target > 6 || current > 6 || target < 0 || current < 0) {
+            document.getElementById('resultDesc').innerText = "等级范围必须在 0-6 之间";
+            return;
+        }
+
+        if (current >= target) {
+            document.getElementById('resultDesc').innerText = "目标等级不能低于当前等级";
+            return;
+        }
+
+        let baseRate = 100;
+        
+        // 基础公式：100% - (当前等级 * 10%)
+        // 防具和戒指略有不同，这里使用通用简化公式
+        let rate = 100 - (current * 10);
+        
+        // 简单的区间修正 (基于冒险岛经典强化机制)
+        if (type === 2 || type === 3) { // 防具/戒指
+            if (current === 5) rate = 50;
+            if (current === 6) rate = 30;
+        } else { // 武器
+            if (current === 5) rate = 45;
+            if (current === 6) rate = 20;
+        }
+
+        // 限制在 1% - 100% 之间
+        rate = Math.max(1, Math.min(100, rate));
+
+        // 失败概率
+        const failRate = 100 - rate;
+
+        document.getElementById('successRate').innerText = rate.toFixed(1) + '%';
+        document.getElementById('resultDesc').innerText = `失败概率: ${failRate.toFixed(1)}% | 建议准备 ${Math.ceil(target - current)} 个卷轴`;
+    }
+
+    // FAQ 交互
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // 初始化计算一次
+    calculateSuccess();
+</script>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
